@@ -1,0 +1,4 @@
+-il y aura un bug au cas ou il y a plusieurs espace
+
+-commande de compilation "gcc {nom du fichier a complier}  -o prog
+
