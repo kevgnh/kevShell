@@ -1,6 +1,8 @@
 #include <stdio.h> 
 #include <stdlib.h>
 #include <stdbool.h>
+#include <unistd.h>
+#define size 1024
 
 
 
@@ -148,9 +150,6 @@ int main()
             printf("END\n");
             break;
         }
-        else{
-            printf("command not found. Enter help to see other command\n");
-        }
         if(string_comparaison(commande_partielle[0],"echo")==1){
 
             int petit_compteur=1;
@@ -162,6 +161,11 @@ int main()
             printf("\n");
             
             
+        }
+        if(string_comparaison(commande_partielle[0],"pwd")==1){
+            char tab[size];
+            getcwd(tab,size);
+            printf("%s \n",tab);
         }
         
         for(int i=0;i<compteur;i++){
