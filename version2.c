@@ -64,7 +64,7 @@ int len(char string[]){
 
 void echo_prime(char string[]){
 
-    printf("%s\n",string);  
+    printf("%s ",string);  
     
 }
 
@@ -105,7 +105,7 @@ int main()
         char **commande_partielle=malloc(compteur*sizeof(char *));
 
         for(int i=0;i<compteur;i++){
-            commande_partielle[i] = malloc(100*sizeof(char ));
+            commande_partielle[i] = calloc(100,sizeof(char ));
         }
 
         bool var=true;
@@ -148,10 +148,22 @@ int main()
             printf("END\n");
             break;
         }
-        if(string_comparaison(commande_partielle[0],"echo")==1){
-            
-            echo_prime(commande_partielle[1]);
+        else{
+            printf("command not found. Enter help to see other command\n");
         }
+        if(string_comparaison(commande_partielle[0],"echo")==1){
+
+            int petit_compteur=1;
+
+            while(commande_partielle[petit_compteur][0] != '\0'){
+                echo_prime(commande_partielle[petit_compteur]);
+                petit_compteur++ ;
+            }
+            printf("\n");
+            
+            
+        }
+        
         for(int i=0;i<compteur;i++){
             free(commande_partielle[i]);
         }
