@@ -150,7 +150,7 @@ int main()
             printf("END\n");
             break;
         }
-        if(string_comparaison(commande_partielle[0],"echo")==1){
+        else if(string_comparaison(commande_partielle[0],"echo")==1){
 
             int petit_compteur=1;
 
@@ -162,10 +162,13 @@ int main()
             
             
         }
-        if(string_comparaison(commande_partielle[0],"pwd")==1){
+        else if(string_comparaison(commande_partielle[0],"pwd")==1){
             char tab[size];
             getcwd(tab,size);
             printf("%s \n",tab);
+        }
+        else{
+            printf("kevShell$$  Command don't exist. Tap help to see all command\n");
         }
         
         for(int i=0;i<compteur;i++){
